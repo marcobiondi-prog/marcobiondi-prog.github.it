@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>avatarDesign — 2D & 3D Graphics</title>
+  <meta name="description" content="avatarDesign — 2D illustration, 3D modeling, rendering and motion graphics portfolio." />
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS (inline, single-file) -->
+  <style>
+:root{
+  --electric:#0057ff;
+  --electric-dark:#003ecb;
+  --electric-light:#5b8cff;
+  --ink:#0a1633;
+  --light-blue:#eef4ff;
+  --dark-blue:#071032;
+}
+*{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);padding-top:0}
+h1,h2,h3,.navbar-brand{font-family:'Space Grotesk','Inter',sans-serif;letter-spacing:-.02em}
+.text-electric{color:var(--electric)!important}
+.text-electric-light{color:#7aa5ff!important}
+.ls{letter-spacing:.12em}
+
+/* topbar */
+.topbar{background:var(--dark-blue);color:#cdd9ff;font-size:.85rem;padding:.4rem 0}
+.social-mini a{color:#cdd9ff;margin-left:.7rem}
+.social-mini a:hover{color:#fff}
+
+/* nav */
+.main-nav .navbar-brand{font-size:1.35rem}
+.logo-cube{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:var(--electric);color:#fff;margin-right:.5rem;font-size:1.2rem}
+.logo-cube.light{background:rgba(255,255,255,.15)}
+.nav-link{font-weight:600;color:#33415e!important}
+.nav-link.active,.nav-link:hover{color:var(--electric)!important}
+.btn-electric{background:var(--electric);border-color:var(--electric);color:#fff;font-weight:600;border-radius:999px;padding:.55rem 1.4rem}
+.btn-electric:hover{background:var(--electric-dark);border-color:var(--electric-dark);color:#fff}
+.btn-outline-electric{border:2px solid var(--electric);color:var(--electric);font-weight:600;border-radius:999px;padding:.55rem 1.4rem;background:#fff}
+.btn-outline-electric:hover{background:var(--electric);color:#fff}
+.btn-white{background:#fff;color:var(--electric);font-weight:700;border-radius:999px;padding:.65rem 1.6rem;border:none}
+.btn-outline-white{border:2px solid #fff;color:#fff;font-weight:600;border-radius:999px;padding:.6rem 1.5rem}
+.btn-outline-white:hover{background:#fff;color:var(--electric)}
+
+/* hero slider - below menu */
+.hero-header{background:#fff}
+#heroSlider .carousel-item{padding:3.5rem 0 4.5rem;min-height:70vh;display:flex;align-items:center}
+#heroSlider .carousel-item:not(.active){display:none}
+#heroSlider .carousel-item.active{display:flex}
+.slide-1{background:radial-gradient(1000px 500px at 85% 10%,rgba(0,87,255,.18),transparent),linear-gradient(180deg,#fff 0%,var(--light-blue) 100%)}
+.slide-2{background:radial-gradient(900px 500px at 10% 90%,rgba(0,87,255,.16),transparent),linear-gradient(180deg,#071032 0%,#10246b 100%);color:#fff}
+.slide-2 .lead{color:#cdd9ff}
+.slide-3{background:linear-gradient(135deg,#fff 55%,#dbe7ff 55%,#fff 56%)}
+.badge-hero{display:inline-block;background:var(--electric);color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.4rem .9rem;border-radius:999px;margin-bottom:1rem}
+.slide-2 .badge-hero{background:#fff;color:var(--electric)}
+.hero-copy h1{font-size:clamp(2rem,4.5vw,3.4rem);font-weight:800;line-height:1.05}
+.hero-stats strong{display:block;font-size:1.3rem}
+.hero-stats span{font-size:.8rem;color:#6b7a99}
+.slide-2 .hero-stats span{color:#aebfff}
+.hero-img{border-radius:1.5rem;box-shadow:0 25px 60px rgba(0,40,150,.25);aspect-ratio:4/3;object-fit:cover;width:100%}
+.hero-visual{position:relative}
+.float-card{position:absolute;background:#fff;border-radius:12px;padding:.55rem .9rem;font-size:.85rem;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.15);color:var(--ink)}
+.float-card i{color:var(--electric);margin-right:.3rem}
+.fc-1{left:12px;bottom:18px}
+.fc-2{right:12px;top:18px}
+#heroSlider .carousel-indicators [data-bs-target]{width:32px;height:6px;border-radius:99px;background:var(--electric);opacity:.25;border:none}
+#heroSlider .carousel-indicators .active{opacity:1}
+#heroSlider .carousel-control-prev,#heroSlider .carousel-control-next{width:5%}
+#heroSlider .carousel-control-prev-icon,#heroSlider .carousel-control-next-icon{background-color:var(--electric);border-radius:50%;background-size:60% 60%}
+
+/* sections */
+.section-tag{display:inline-block;background:rgba(0,87,255,.1);color:var(--electric);font-weight:700;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:999px}
+.section-tag.light{background:rgba(255,255,255,.15);color:#fff}
+.bg-light-blue{background:var(--light-blue)}
+.service-card{border:none;border-radius:1.25rem;box-shadow:0 10px 30px rgba(0,40,120,.08);transition:.25s}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 20px 45px rgba(0,87,255,.18)}
+.icon-box{width:52px;height:52px;border-radius:14px;background:var(--electric);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1rem}
+
+/* work */
+.btn-filter{border-radius:999px;border:1px solid #c9d8ff;background:#fff;color:var(--electric);font-weight:600;padding:.4rem 1.1rem;margin:.15rem}
+.btn-filter.active{background:var(--electric);color:#fff;border-color:var(--electric)}
+.work-card{position:relative;border-radius:1.1rem;overflow:hidden;cursor:pointer;box-shadow:0 12px 30px rgba(0,30,100,.12);background:#fff}
+.work-card img{transition:.4s;width:100%;aspect-ratio:4/3;object-fit:cover}
+.work-card:hover img{transform:scale(1.06)}
+.work-overlay{position:absolute;inset:auto 0 0 0;padding:1rem;background:linear-gradient(180deg,transparent,rgba(4,15,60,.9));color:#fff}
+.work-cat{display:inline-block;background:var(--electric);font-size:.7rem;font-weight:700;padding:.2rem .7rem;border-radius:99px;margin-bottom:.35rem}
+.work-overlay h6{margin:0;font-weight:700}
+.work-overlay small{opacity:.8}
+
+/* about */
+.about-img{aspect-ratio:4/5;object-fit:cover}
+.stat-box{background:var(--light-blue);border-radius:1rem;padding:1rem;text-align:center}
+.stat-box strong{display:block;font-size:1.5rem;color:var(--electric)}
+.stat-box span{font-size:.8rem;color:#5b6b8c}
+.skill{display:inline-block;background:#fff;border:1px solid #d5e1ff;color:var(--electric);border-radius:99px;padding:.3rem .8rem;font-size:.8rem;font-weight:600;margin:.2rem}
+
+/* process */
+.bg-dark-blue{background:linear-gradient(180deg,#071032,#0b1e63)}
+.step{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:1.2rem;padding:1.5rem 1rem;height:100%}
+.step span{display:inline-flex;width:44px;height:44px;border-radius:50%;background:var(--electric);font-weight:800;align-items:center;justify-content:center;margin-bottom:.7rem}
+
+/* contact */
+.contact-list li{margin:.5rem 0;font-weight:600}
+.contact-list i{color:var(--electric);margin-right:.5rem}
+.contact-form{border-radius:1.25rem;border:none}
+.contact-form .form-control,.contact-form .form-select{border-radius:.8rem;padding:.7rem .9rem}
+.contact-form .form-control:focus,.contact-form .form-select:focus{border-color:var(--electric);box-shadow:0 0 0 .2rem rgba(0,87,255,.15)}
+
+/* footer */
+.footer{background:var(--dark-blue)}
+.footer-links{padding:0;list-style:none}
+.footer-links a{color:#aebfff;text-decoration:none;font-size:.9rem}
+.footer-links a:hover{color:#fff}
+.social-btns a{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.12);color:#fff}
+.social-btns a:hover{background:var(--electric)}
+
+.hero-img{display:block;width:100%;height:auto}
+.work-card svg{display:block;width:100%;height:auto;aspect-ratio:4/3;transition:.4s}
+.work-card:hover svg{transform:scale(1.06)}
+.about-img{display:block;width:100%;height:auto}
+#modalArt{background:#071032;display:flex}
+#modalArt svg{width:100%;height:100%;display:block}
+@media(max-width:991px){
+  #heroSlider .carousel-item{min-height:auto;padding:2.5rem 0 3.5rem}
+  .fc-2{display:none}
+}
+
+  </style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar d-none d-md-block">
+  <div class="container d-flex justify-content-between align-items-center">
+    <small><i class="bi bi-envelope me-1"></i> hello@avatardesign.art &nbsp; | &nbsp; <i class="bi bi-geo-alt me-1"></i> Available worldwide</small>
+    <div class="social-mini">
+      <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="#" aria-label="Behance"><i class="bi bi-behance"></i></a>
+      <a href="#" aria-label="Dribbble"><i class="bi bi-dribbble"></i></a>
+      <a href="#" aria-label="Youtube"><i class="bi bi-youtube"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MENU / NAVBAR ============ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm main-nav">
+  <div class="container">
+    <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+      <span class="logo-cube"><i class="bi bi-boxes"></i></span>
+      avatar<span class="text-electric">Design</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainMenu">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+          <a href="#contact" class="btn btn-electric">Start a project <i class="bi bi-arrow-right ms-1"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HEADER / HERO SLIDER (below menu) ============ -->
+<header id="home" class="hero-header">
+  <div id="heroSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <!-- Slide 1 : 3D -->
+      <div class="carousel-item active slide-1">
+        <div class="container">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-6 hero-copy">
+              <span class="badge-hero">3D • Modeling • Rendering</span>
+              <h1>Stunning <span class="text-electric">3D worlds</span> built to impress.</h1>
+              <p class="lead">Product renders, environments and characters with cinematic lighting and photoreal detail.</p>
+              <div class="d-flex flex-wrap gap-2 mt-4">
+                <a href="#work" class="btn btn-electric btn-lg">View 3D work</a>
+                <a href="#contact" class="btn btn-outline-electric btn-lg">Get a quote</a>
+              </div>
+              <div class="hero-stats d-flex gap-4 mt-4">
+                <div><strong>120+</strong><span>3D projects</span></div>
+                <div><strong>8 yrs</strong><span>experience</span></div>
+                <div><strong>4K</strong><span>render quality</span></div>
+              </div>
+            </div>
+            <div class="col-lg-6 hero-visual">
+              <svg class="img-fluid hero-img" viewBox="0 0 800 600" role="img" aria-label="Render 3D astratto bianco e blu - lavoro di esempio"><title>Cubi 3D - avatarDesign</title><defs><linearGradient id="h1bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DCE7FF"/></linearGradient><radialGradient id="h1ball" cx="0.35" cy="0.3" r="1"><stop offset="0" stop-color="#9DBCFF"/><stop offset="1" stop-color="#0057FF"/></radialGradient></defs><rect width="800" height="600" fill="url(#h1bg)"/><ellipse cx="400" cy="510" rx="260" ry="40" fill="#0057FF" opacity="0.12"/><ellipse cx="610" cy="470" rx="90" ry="18" fill="#0057FF" opacity="0.15"/><ellipse cx="200" cy="480" rx="70" ry="14" fill="#0057FF" opacity="0.15"/><ellipse cx="400" cy="120" rx="180" ry="60" fill="#0057FF" opacity="0.06"/><g><polygon points="400,180 520,250 400,320 280,250" fill="#7AA5FF"/><polygon points="280,250 400,320 400,460 280,390" fill="#0057FF"/><polygon points="520,250 400,320 400,460 520,390" fill="#003ECB"/><polygon points="400,180 520,250 400,320 280,250" fill="none" stroke="#FFFFFF" stroke-width="4" opacity="0.6"/></g><g><polygon points="610,340 670,375 610,410 550,375" fill="#9DBCFF"/><polygon points="550,375 610,410 610,480 550,445" fill="#0057FF"/><polygon points="670,375 610,410 610,480 670,445" fill="#0A1633"/></g><g><polygon points="190,360 230,383 190,406 150,383" fill="#BFD4FF"/><polygon points="150,383 190,406 190,452 150,429" fill="#0057FF"/><polygon points="230,383 190,406 190,452 230,429" fill="#003ECB"/></g><circle cx="620" cy="170" r="55" fill="url(#h1ball)"/><ellipse cx="620" cy="170" rx="95" ry="28" fill="none" stroke="#0057FF" stroke-width="8" opacity="0.5" transform="rotate(-18 620 170)"/><rect x="120" y="120" width="14" height="14" rx="3" fill="#0057FF" transform="rotate(20 120 120)"/><rect x="680" y="300" width="12" height="12" rx="3" fill="#0057FF" opacity="0.6" transform="rotate(-15 680 300)"/><circle cx="250" cy="140" r="6" fill="#0057FF"/><circle cx="700" cy="110" r="8" fill="#0057FF" opacity="0.4"/></svg>
+              <div class="float-card fc-1"><i class="bi bi-badge-3d"></i> Blender • C4D • Maya</div>
+              <div class="float-card fc-2"><i class="bi bi-lightning-charge-fill"></i> Octane / Cycles</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 : 2D -->
+      <div class="carousel-item slide-2">
+        <div class="container">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-6 hero-copy">
+              <span class="badge-hero">2D • Illustration • Concept Art</span>
+              <h1>Bold <span class="text-electric">2D graphics</span> with character.</h1>
+              <p class="lead">Illustrations, key visuals, matte painting and brand graphics — from sketch to final art.</p>
+              <div class="d-flex flex-wrap gap-2 mt-4">
+                <a href="#work" class="btn btn-white btn-lg">View 2D work</a>
+                <a href="#services" class="btn btn-outline-white btn-lg">Services</a>
+              </div>
+            </div>
+            <div class="col-lg-6 hero-visual">
+              <svg class="img-fluid hero-img" viewBox="0 0 800 600" role="img" aria-label="Illustrazione 2D notturna - lavoro di esempio"><title>Baia notturna - avatarDesign</title><defs><linearGradient id="h2sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#071032"/><stop offset="1" stop-color="#14308F"/></linearGradient></defs><rect width="800" height="600" fill="url(#h2sky)"/><circle cx="620" cy="140" r="60" fill="#FFFFFF"/><circle cx="620" cy="140" r="80" fill="#FFFFFF" opacity="0.15"/><g fill="#FFFFFF"><circle cx="100" cy="80" r="3"/><circle cx="200" cy="150" r="2.5"/><circle cx="320" cy="70" r="3"/><circle cx="450" cy="120" r="2.5"/><circle cx="540" cy="60" r="3"/><circle cx="700" cy="250" r="2.5"/><circle cx="60" cy="250" r="2.5"/><circle cx="380" cy="200" r="2"/></g><ellipse cx="180" cy="180" rx="70" ry="18" fill="#FFFFFF" opacity="0.15"/><ellipse cx="420" cy="230" rx="90" ry="20" fill="#FFFFFF" opacity="0.12"/><polygon points="0,420 150,260 300,420" fill="#0B1E63"/><polygon points="200,420 380,220 560,420" fill="#12308F"/><polygon points="480,420 640,270 800,420" fill="#0B1E63"/><polygon points="380,220 410,260 350,260" fill="#FFFFFF"/><rect y="420" width="800" height="180" fill="#071032"/><rect x="560" y="450" width="120" height="10" rx="5" fill="#5B8CFF" opacity="0.8"/><rect x="480" y="475" width="200" height="8" rx="4" fill="#5B8CFF" opacity="0.5"/><rect x="600" y="500" width="90" height="8" rx="4" fill="#5B8CFF" opacity="0.4"/><rect x="120" y="465" width="150" height="9" rx="4.5" fill="#5B8CFF" opacity="0.6"/><g fill="#071032"><rect x="80" y="330" width="40" height="90"/><rect x="130" y="300" width="34" height="120"/><rect x="600" y="320" width="44" height="100"/><rect x="652" y="350" width="30" height="70"/><rect x="690" y="300" width="38" height="120"/></g><g fill="#FFD66B"><rect x="90" y="345" width="8" height="8"/><rect x="104" y="360" width="8" height="8"/><rect x="138" y="315" width="8" height="8"/><rect x="610" y="335" width="8" height="8"/><rect x="700" y="320" width="8" height="8"/></g><g stroke="#FFFFFF" stroke-width="4" fill="none" stroke-linecap="round"><path d="M250 140 q12 -12 24 0 q12 -12 24 0"/><path d="M310 170 q10 -10 20 0 q10 -10 20 0"/></g></svg>
+              <div class="float-card fc-1"><i class="bi bi-brush"></i> Photoshop • Procreate</div>
+              <div class="float-card fc-2"><i class="bi bi-palette-fill"></i> Concept / Key visual</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 : Motion / Studio -->
+      <div class="carousel-item slide-3">
+        <div class="container">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-6 hero-copy">
+              <span class="badge-hero">Motion • AR • Realtime</span>
+              <h1>From static to <span class="text-electric">motion.</span></h1>
+              <p class="lead">Turntables, product animations, loops and realtime assets for web, games and AR.</p>
+              <div class="d-flex flex-wrap gap-2 mt-4">
+                <a href="#contact" class="btn btn-electric btn-lg">Start a project</a>
+                <a href="#process" class="btn btn-outline-electric btn-lg">How I work</a>
+              </div>
+            </div>
+            <div class="col-lg-6 hero-visual">
+              <svg class="img-fluid hero-img" viewBox="0 0 800 600" role="img" aria-label="Motion graphics loop - lavoro di esempio"><title>Loop motion - avatarDesign</title><defs><linearGradient id="h3bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DCE7FF"/></linearGradient></defs><rect width="800" height="600" fill="url(#h3bg)"/><g fill="#0057FF" opacity="0.9"><rect x="90" y="260" width="22" height="80" rx="11"/><rect x="124" y="230" width="22" height="140" rx="11"/><rect x="158" y="200" width="22" height="200" rx="11"/><rect x="192" y="245" width="22" height="110" rx="11"/><rect x="226" y="275" width="22" height="50" rx="11"/></g><g fill="#0057FF" opacity="0.9"><rect x="552" y="275" width="22" height="50" rx="11"/><rect x="586" y="245" width="22" height="110" rx="11"/><rect x="620" y="200" width="22" height="200" rx="11"/><rect x="654" y="230" width="22" height="140" rx="11"/><rect x="688" y="260" width="22" height="80" rx="11"/></g><circle cx="400" cy="300" r="120" fill="#0057FF"/><circle cx="400" cy="300" r="120" fill="none" stroke="#003ECB" stroke-width="6" opacity="0.4"/><circle cx="400" cy="300" r="145" fill="none" stroke="#0057FF" stroke-width="4" stroke-dasharray="18 14" opacity="0.6"/><polygon points="375,240 460,300 375,360" fill="#FFFFFF"/><g><rect x="150" y="470" width="500" height="26" rx="13" fill="#FFFFFF" stroke="#0057FF" stroke-width="3"/><rect x="150" y="470" width="330" height="26" rx="13" fill="#0057FF"/><circle cx="480" cy="483" r="16" fill="#0057FF" stroke="#FFFFFF" stroke-width="4"/><rect x="180" y="512" width="120" height="10" rx="5" fill="#0057FF" opacity="0.5"/><rect x="500" y="512" width="120" height="10" rx="5" fill="#0057FF" opacity="0.3"/></g><g font-family="sans-serif" font-weight="bold" font-size="26" fill="#0057FF"><text x="150" y="445">SHOWREEL 2026 — 01:24</text></g></svg>
+              <div class="float-card fc-1"><i class="bi bi-play-circle"></i> Showreel 2026 — 01:24</div>
+              <div class="float-card fc-2"><i class="bi bi-controller"></i> Unreal • Unity ready</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ CLIENT STRIP ============ -->
+<section class="strip py-3 border-bottom">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2 text-muted small">
+    <span class="fw-semibold text-uppercase ls">Trusted tools & pipelines</span>
+    <span><i class="bi bi-check-circle-fill text-electric me-1"></i> Blender</span>
+    <span><i class="bi bi-check-circle-fill text-electric me-1"></i> ZBrush</span>
+    <span><i class="bi bi-check-circle-fill text-electric me-1"></i> Substance 3D</span>
+    <span><i class="bi bi-check-circle-fill text-electric me-1"></i> After Effects</span>
+    <span><i class="bi bi-check-circle-fill text-electric me-1"></i> Unreal Engine</span>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="py-5">
+  <div class="container py-lg-4">
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-7">
+        <span class="section-tag">Services</span>
+        <h2 class="mt-2">2D & 3D services, <span class="text-electric">end to end.</span></h2>
+        <p class="text-muted">Everything from first sketch and blockout to final render, retouch and delivery for web & print.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="card service-card h-100">
+          <div class="card-body">
+            <div class="icon-box"><i class="bi bi-badge-3d-fill"></i></div>
+            <h5>3D Modeling & Rendering</h5>
+            <p>Hard-surface & organic modeling, UVs, PBR texturing, lighting and photoreal stills or turntables.</p>
+            <ul class="list-unstyled small text-muted"><li>• Product & packaging</li><li>• Characters & creatures</li><li>• Archviz & environments</li></ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card service-card h-100">
+          <div class="card-body">
+            <div class="icon-box"><i class="bi bi-brush-fill"></i></div>
+            <h5>2D Illustration & Concept</h5>
+            <p>Key visuals, posters, storyboards, matte painting and vector graphics with a distinctive style.</p>
+            <ul class="list-unstyled small text-muted"><li>• Concept art</li><li>• Editorial illustration</li><li>• Brand & logo graphics</li></ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card service-card h-100">
+          <div class="card-body">
+            <div class="icon-box"><i class="bi bi-film"></i></div>
+            <h5>Motion & Realtime</h5>
+            <p>Loops, explainer animations, product spins and game-ready low-poly assets with rigs.</p>
+            <ul class="list-unstyled small text-muted"><li>• Animation & VFX</li><li>• Low-poly / game assets</li><li>• AR / WebGL exports</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK / SHOWCASE ============ -->
+<section id="work" class="py-5 bg-light-blue">
+  <div class="container py-lg-3">
+    <div class="row align-items-end mb-4">
+      <div class="col-lg-6">
+        <span class="section-tag">Portfolio</span>
+        <h2 class="mt-2">Selected <span class="text-electric">work.</span></h2>
+        <p class="text-muted mb-0">Filter by discipline. Click any piece to view details.</p>
+      </div>
+      <div class="col-lg-6 text-lg-end mt-3 mt-lg-0">
+        <div class="btn-group filter-group" role="group" aria-label="Filter work">
+          <button class="btn btn-filter active" data-filter="all">All</button>
+          <button class="btn btn-filter" data-filter="2d">2D</button>
+          <button class="btn btn-filter" data-filter="3d">3D</button>
+          <button class="btn btn-filter" data-filter="motion">Motion</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="galleryGrid" class="row g-4">
+      <!-- items injected pattern: repeat 6 items -->
+      <div class="col-sm-6 col-lg-4 gallery-item" data-cat="3d">
+        <div class="work-card" data-bs-toggle="modal" data-bs-target="#workModal" data-title="Neon Racer — 3D Vehicle" data-cat="3D / Hard-surface" data-art="w1" data-desc="Futuristic vehicle modeled in Blender, textured in Substance, rendered in Cycles. 4K stills + turntable.">
+          <svg viewBox="0 0 600 450" role="img" aria-label="Neon Racer veicolo 3D"><title>Neon Racer</title><rect width="600" height="450" fill="#071032"/><ellipse cx="300" cy="360" rx="230" ry="26" fill="#0057FF" opacity="0.25"/><g><polygon points="90,300 180,250 340,240 470,265 510,300 480,320 110,320" fill="#0B1E63" stroke="#5B8CFF" stroke-width="5"/><polygon points="200,250 260,200 360,195 420,240" fill="#12308F" stroke="#9DBCFF" stroke-width="4"/><rect x="270" y="210" width="110" height="32" rx="8" fill="#9DBCFF" opacity="0.85"/></g><circle cx="190" cy="320" r="42" fill="#0A1633" stroke="#5B8CFF" stroke-width="6"/><circle cx="190" cy="320" r="16" fill="#0057FF"/><circle cx="430" cy="320" r="42" fill="#0A1633" stroke="#5B8CFF" stroke-width="6"/><circle cx="430" cy="320" r="16" fill="#0057FF"/><g stroke="#0057FF" stroke-width="6" stroke-linecap="round" opacity="0.8"><line x1="20" y1="270" x2="90" y2="270"/><line x1="10" y1="295" x2="70" y2="295"/><line x1="30" y1="320" x2="80" y2="320"/></g><circle cx="500" cy="100" r="5" fill="#FFFFFF"/><circle cx="540" cy="150" r="4" fill="#5B8CFF"/><text x="40" y="60" font-family="sans-serif" font-size="30" font-weight="bold" fill="#FFFFFF">NEON RACER</text><text x="40" y="90" font-family="sans-serif" font-size="16" fill="#5B8CFF">3D / HARD-SURFACE</text></svg>
+          <div class="work-overlay"><span class="work-cat">3D</span><h6>Neon Racer — Vehicle</h6><small>Click to view <i class="bi bi-arrow-up-right"></i></small></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 gallery-item" data-cat="2d">
+        <div class="work-card" data-bs-toggle="modal" data-bs-target="#workModal" data-title="Sky Harbor — Key Visual" data-cat="2D / Matte painting" data-art="w2" data-desc="Sci-fi key visual: sketch → color script → final matte painting in Photoshop. Delivered for print + web hero.">
+          <svg viewBox="0 0 600 450" role="img" aria-label="Sky Harbor key visual 2D"><title>Sky Harbor</title><defs><linearGradient id="g2sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFD4FF"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient></defs><rect width="600" height="450" fill="url(#g2sky)"/><circle cx="460" cy="110" r="48" fill="#0057FF"/><circle cx="460" cy="110" r="66" fill="#0057FF" opacity="0.2"/><ellipse cx="150" cy="120" rx="80" ry="24" fill="#FFFFFF"/><ellipse cx="210" cy="105" rx="60" ry="20" fill="#FFFFFF"/><ellipse cx="400" cy="180" rx="70" ry="20" fill="#FFFFFF" opacity="0.9"/><g><rect x="40" y="230" width="60" height="130" fill="#0A1633"/><rect x="110" y="190" width="52" height="170" fill="#0057FF"/><rect x="172" y="250" width="44" height="110" fill="#0B1E63"/><rect x="380" y="210" width="56" height="150" fill="#0A1633"/><rect x="444" y="250" width="44" height="110" fill="#0057FF"/><rect x="496" y="180" width="54" height="180" fill="#0B1E63"/></g><g fill="#FFFFFF"><rect x="118" y="205" width="10" height="10"/><rect x="134" y="205" width="10" height="10"/><rect x="118" y="225" width="10" height="10"/><rect x="504" y="195" width="10" height="10"/><rect x="522" y="195" width="10" height="10"/><rect x="504" y="215" width="10" height="10"/></g><rect y="360" width="600" height="90" fill="#0057FF"/><g stroke="#FFFFFF" stroke-width="5" opacity="0.7" stroke-linecap="round"><line x1="60" y1="395" x2="180" y2="395"/><line x1="240" y1="415" x2="400" y2="415"/><line x1="440" y1="392" x2="550" y2="392"/></g><text x="40" y="60" font-family="sans-serif" font-size="30" font-weight="bold" fill="#0A1633">SKY HARBOR</text><text x="40" y="88" font-family="sans-serif" font-size="16" fill="#0057FF">2D / MATTE PAINTING</text></svg>
+          <div class="work-overlay"><span class="work-cat">2D</span><h6>Sky Harbor — Key Visual</h6><small>Click to view <i class="bi bi-arrow-up-right"></i></small></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 gallery-item" data-cat="3d">
+        <div class="work-card" data-bs-toggle="modal" data-bs-target="#workModal" data-title="AURA Headphones — Product Render" data-cat="3D / Product" data-art="w3" data-desc="Studio product pack: 8 angles, exploded view and packaging mockup. Octane render, ACES color.">
+          <svg viewBox="0 0 600 450" role="img" aria-label="AURA cuffie product render 3D"><title>AURA Headphones</title><defs><linearGradient id="g3bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DCE7FF"/></linearGradient></defs><rect width="600" height="450" fill="url(#g3bg)"/><ellipse cx="300" cy="370" rx="170" ry="26" fill="#0057FF" opacity="0.15"/><path d="M180 300 Q180 140 300 140 Q420 140 420 300" fill="none" stroke="#0A1633" stroke-width="30" stroke-linecap="round"/><path d="M180 300 Q180 140 300 140 Q420 140 420 300" fill="none" stroke="#0057FF" stroke-width="8" stroke-linecap="round" opacity="0.6"/><rect x="140" y="260" width="90" height="120" rx="40" fill="#0057FF"/><rect x="370" y="260" width="90" height="120" rx="40" fill="#0057FF"/><rect x="160" y="280" width="50" height="80" rx="25" fill="#0A1633" opacity="0.35"/><rect x="390" y="280" width="50" height="80" rx="25" fill="#0A1633" opacity="0.35"/><circle cx="300" cy="140" r="14" fill="#0057FF"/><text x="40" y="60" font-family="sans-serif" font-size="30" font-weight="bold" fill="#0A1633">AURA</text><text x="40" y="88" font-family="sans-serif" font-size="16" fill="#0057FF">3D / PRODUCT RENDER</text><circle cx="540" cy="70" r="26" fill="#0057FF"/><text x="528" y="79" font-family="sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF">4K</text></svg>
+          <div class="work-overlay"><span class="work-cat">3D</span><h6>AURA Headphones — Render</h6><small>Click to view <i class="bi bi-arrow-up-right"></i></small></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 gallery-item" data-cat="2d">
+        <div class="work-card" data-bs-toggle="modal" data-bs-target="#workModal" data-title="Botanica — Character Set" data-cat="2D / Character design" data-art="w4" data-desc="Character lineup with expressions, poses and color variants. Vector + raster delivery.">
+          <svg viewBox="0 0 600 450" role="img" aria-label="Botanica character set 2D"><title>Botanica</title><rect width="600" height="450" fill="#FFFFFF"/><circle cx="300" cy="90" r="150" fill="#EEF4FF"/><g><circle cx="150" cy="180" r="55" fill="#FFD9C2"/><rect x="105" y="235" width="90" height="110" rx="30" fill="#0057FF"/><circle cx="132" cy="175" r="7" fill="#0A1633"/><circle cx="168" cy="175" r="7" fill="#0A1633"/><path d="M138 200 Q150 210 162 200" stroke="#0A1633" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M100 140 Q150 90 200 140" stroke="#0B8A3E" stroke-width="10" fill="none" stroke-linecap="round"/></g><g><circle cx="300" cy="170" r="60" fill="#0A1633"/><rect x="250" y="230" width="100" height="120" rx="32" fill="#0B1E63"/><circle cx="280" cy="168" r="8" fill="#FFFFFF"/><circle cx="320" cy="168" r="8" fill="#FFFFFF"/><circle cx="280" cy="168" r="3.5" fill="#0A1633"/><circle cx="320" cy="168" r="3.5" fill="#0A1633"/><path d="M282 195 Q300 208 318 195" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round"/></g><g><circle cx="450" cy="180" r="55" fill="#C2D4FF"/><rect x="405" y="235" width="90" height="110" rx="30" fill="#7AA5FF"/><circle cx="432" cy="175" r="7" fill="#0A1633"/><circle cx="468" cy="175" r="7" fill="#0A1633"/><path d="M435 202 Q450 212 465 202" stroke="#0A1633" stroke-width="5" fill="none" stroke-linecap="round"/><polygon points="450,105 465,135 435,135" fill="#0057FF"/></g><text x="40" y="400" font-family="sans-serif" font-size="30" font-weight="bold" fill="#0A1633">BOTANICA</text><text x="40" y="426" font-family="sans-serif" font-size="16" fill="#0057FF">2D / CHARACTER DESIGN</text></svg>
+          <div class="work-overlay"><span class="work-cat">2D</span><h6>Botanica — Characters</h6><small>Click to view <i class="bi bi-arrow-up-right"></i></small></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 gallery-item" data-cat="motion">
+        <div class="work-card" data-bs-toggle="modal" data-bs-target="#workModal" data-title="Pulse Loop — Motion ID" data-cat="Motion / Loop" data-art="w5" data-desc="Seamless 6s loop for landing hero. After Effects + Blender, optimized WebM + MP4.">
+          <svg viewBox="0 0 600 450" role="img" aria-label="Pulse Loop motion id"><title>Pulse Loop</title><rect width="600" height="450" fill="#071032"/><circle cx="300" cy="200" r="120" fill="none" stroke="#0057FF" stroke-width="4" opacity="0.4"/><circle cx="300" cy="200" r="85" fill="none" stroke="#5B8CFF" stroke-width="5" opacity="0.7"/><circle cx="300" cy="200" r="55" fill="#0057FF"/><polygon points="285,170 330,200 285,230" fill="#FFFFFF"/><g><rect x="80" y="340" width="440" height="20" rx="10" fill="#FFFFFF" opacity="0.2"/><rect x="80" y="340" width="280" height="20" rx="10" fill="#0057FF"/><circle cx="360" cy="350" r="14" fill="#0057FF" stroke="#FFFFFF" stroke-width="4"/></g><text x="40" y="60" font-family="sans-serif" font-size="30" font-weight="bold" fill="#FFFFFF">PULSE LOOP</text><text x="40" y="88" font-family="sans-serif" font-size="16" fill="#5B8CFF">MOTION / 6s SEAMLESS</text><circle cx="540" cy="60" r="24" fill="none" stroke="#FFFFFF" stroke-width="4"/><polygon points="533,45 557,60 533,75" fill="#FFFFFF"/></svg>
+          <div class="work-overlay"><span class="work-cat">Motion</span><h6>Pulse Loop — Motion ID</h6><small>Click to view <i class="bi bi-arrow-up-right"></i></small></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 gallery-item" data-cat="motion">
+        <div class="work-card" data-bs-toggle="modal" data-bs-target="#workModal" data-title="Terra — Realtime Diorama" data-cat="Motion / Realtime" data-art="w6" data-desc="Low-poly diorama for web viewer. 45k tris, 2K PBR, Unreal + WebGL export.">
+          <svg viewBox="0 0 600 450" role="img" aria-label="Terra realtime diorama"><title>Terra</title><rect width="600" height="450" fill="#DCE7FF"/><ellipse cx="300" cy="330" rx="220" ry="60" fill="#5B8CFF" opacity="0.35"/><g><polygon points="300,150 460,230 300,310 140,230" fill="#BFD4FF"/><polygon points="140,230 300,310 300,360 140,280" fill="#0057FF"/><polygon points="460,230 300,310 300,360 460,280" fill="#003ECB"/></g><g><polygon points="240,210 270,150 300,210" fill="#0B8A3E"/><rect x="264" y="210" width="12" height="22" fill="#5B4428"/><polygon points="330,220 360,160 390,220" fill="#0E9E4B"/><rect x="354" y="220" width="12" height="22" fill="#5B4428"/></g><rect x="200" y="250" width="60" height="40" fill="#FFFFFF" stroke="#0057FF" stroke-width="4"/><polygon points="200,250 230,228 260,250" fill="#0057FF"/><circle cx="400" cy="130" r="26" fill="#FFFFFF"/><circle cx="425" cy="135" r="20" fill="#FFFFFF"/><text x="40" y="60" font-family="sans-serif" font-size="30" font-weight="bold" fill="#0A1633">TERRA</text><text x="40" y="88" font-family="sans-serif" font-size="16" fill="#0057FF">REALTIME / 45K TRIS</text></svg>
+          <div class="work-overlay"><span class="work-cat">Motion</span><h6>Terra — Realtime Diorama</h6><small>Click to view <i class="bi bi-arrow-up-right"></i></small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Work Modal -->
+<div class="modal fade" id="workModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content overflow-hidden">
+      <div class="row g-0">
+        <div class="col-md-7 d-flex align-items-stretch"><div id="modalArt" class="w-100"></div></div>
+        <div class="col-md-5 p-4">
+          <span id="modalCat" class="section-tag"></span>
+          <h4 id="modalTitle" class="mt-2"></h4>
+          <p id="modalDesc" class="text-muted"></p>
+          <a href="#contact" class="btn btn-electric w-100" data-bs-dismiss="modal">Request similar</a>
+          <button class="btn btn-outline-electric w-100 mt-2" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="py-5">
+  <div class="container py-lg-4">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <svg class="img-fluid rounded-4 shadow about-img" viewBox="0 0 600 700" role="img" aria-label="Ritratto avatarDesign"><title>avatarDesign - artist</title><defs><linearGradient id="abbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B1E63"/><stop offset="1" stop-color="#071032"/></linearGradient></defs><rect width="600" height="700" rx="24" fill="url(#abbg)"/><circle cx="300" cy="180" r="130" fill="#0057FF" opacity="0.25"/><circle cx="300" cy="300" r="90" fill="#FFD9C2"/><path d="M210 300 Q210 200 300 200 Q390 200 390 300 Q390 250 340 240 Q300 270 260 240 Q220 250 210 300" fill="#0A1633"/><circle cx="272" cy="300" r="8" fill="#0A1633"/><circle cx="328" cy="300" r="8" fill="#0A1633"/><path d="M278 335 Q300 350 322 335" stroke="#0A1633" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M160 700 Q160 480 300 480 Q440 480 440 700" fill="#0057FF"/><path d="M265 480 L300 540 L335 480" fill="#FFFFFF"/><rect x="120" y="560" width="110" height="40" rx="20" fill="#FFFFFF" opacity="0.9"/><text x="138" y="587" font-family="sans-serif" font-size="22" font-weight="bold" fill="#0057FF">2D • 3D</text><rect x="370" y="560" width="110" height="40" rx="20" fill="none" stroke="#FFFFFF" stroke-width="3"/><text x="392" y="587" font-family="sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF">8+ yrs</text><g fill="#5B8CFF"><circle cx="90" cy="120" r="8"/><circle cx="510" cy="100" r="10"/><circle cx="500" cy="420" r="7"/><rect x="80" y="400" width="16" height="16" rx="4" transform="rotate(20 80 400)"/></g></svg>
+      </div>
+      <div class="col-lg-7">
+        <span class="section-tag">About</span>
+        <h2 class="mt-2">Hi, I'm avatarDesign — <span class="text-electric">2D & 3D artist.</span></h2>
+        <p class="text-muted">I help brands, studios and indie creators turn ideas into striking visuals. From stylized illustration to photoreal 3D, my focus is clean shapes, strong light and memorable color.</p>
+        <div class="row g-3 mt-2">
+          <div class="col-6 col-md-3 stat-box"><strong>8+</strong><span>Years</span></div>
+          <div class="col-6 col-md-3 stat-box"><strong>200+</strong><span>Projects</span></div>
+          <div class="col-6 col-md-3 stat-box"><strong>40+</strong><span>Clients</span></div>
+          <div class="col-6 col-md-3 stat-box"><strong>12</strong><span>Awards</span></div>
+        </div>
+        <div class="mt-4">
+          <h6>Skills</h6>
+          <span class="skill">Blender 95%</span>
+          <span class="skill">Photoshop 92%</span>
+          <span class="skill">Substance 88%</span>
+          <span class="skill">After Effects 84%</span>
+          <span class="skill">Unreal 78%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section id="process" class="py-5 bg-dark-blue text-white">
+  <div class="container py-lg-3">
+    <div class="text-center mb-5">
+      <span class="section-tag light">Process</span>
+      <h2 class="mt-2">Simple, transparent <span class="text-electric-light">workflow.</span></h2>
+    </div>
+    <div class="row g-4 text-center">
+      <div class="col-6 col-lg-3"><div class="step"><span>01</span><h6>Brief & refs</h6><p>Goals, moodboards and scope locked in 24h.</p></div></div>
+      <div class="col-6 col-lg-3"><div class="step"><span>02</span><h6>Sketch / blockout</h6><p>Fast drafts to nail direction early.</p></div></div>
+      <div class="col-6 col-lg-3"><div class="step"><span>03</span><h6>Production</h6><p>Full-res art with 2 revision rounds.</p></div></div>
+      <div class="col-6 col-lg-3"><div class="step"><span>04</span><h6>Delivery</h6><p>Print + web files, sources on request.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="py-5">
+  <div class="container py-lg-4">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <span class="section-tag">Contact</span>
+        <h2 class="mt-2">Let's make something <span class="text-electric">electric.</span></h2>
+        <p class="text-muted">Tell me about your project — I reply within 24 hours on workdays.</p>
+        <ul class="list-unstyled contact-list">
+          <li><i class="bi bi-envelope-fill"></i> hello@avatardesign.art</li>
+          <li><i class="bi bi-chat-dots-fill"></i> Discord: @avatardesign</li>
+          <li><i class="bi bi-clock-fill"></i> Mon–Fri, 9:00–18:00 CET</li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <form id="contactForm" class="card p-4 shadow-sm contact-form" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6"><label class="form-label">Name</label><input class="form-control" required placeholder="Your name"></div>
+            <div class="col-md-6"><label class="form-label">Email</label><input type="email" class="form-control" required placeholder="you@mail.com"></div>
+            <div class="col-12"><label class="form-label">Project type</label>
+              <select class="form-select"><option>3D modeling / render</option><option>2D illustration</option><option>Motion / animation</option><option>Other</option></select>
+            </div>
+            <div class="col-12"><label class="form-label">Message</label><textarea class="form-control" rows="4" required placeholder="Budget, deadline, references…"></textarea></div>
+            <div class="col-12"><button class="btn btn-electric w-100 btn-lg" type="submit">Send message <i class="bi bi-send ms-1"></i></button>
+            <div id="formMsg" class="small mt-2 text-success d-none">Thanks! Your message was noted (demo — connect backend to send).</div></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer pt-5 pb-3">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <a class="navbar-brand fw-bold text-white" href="#"><span class="logo-cube light"><i class="bi bi-boxes"></i></span> avatar<span class="text-electric-light">Design</span></a>
+        <p class="text-white-50 small mt-2">2D & 3D graphics, rendering and motion. White-hot ideas, electric-blue execution.</p>
+      </div>
+      <div class="col-6 col-md-4">
+        <h6 class="text-white">Explore</h6>
+        <ul class="list-unstyled footer-links"><li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul>
+      </div>
+      <div class="col-6 col-md-4">
+        <h6 class="text-white">Follow</h6>
+        <div class="d-flex gap-2 social-btns">
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="Behance"><i class="bi bi-behance"></i></a>
+          <a href="#" aria-label="Artstation"><i class="bi bi-brush"></i></a>
+          <a href="#" aria-label="Youtube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="border-secondary my-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between small text-white-50">
+      <span>© 2026 avatarDesign. All rights reserved.</span>
+      <span>Built with Bootstrap 5 • White & Electric Blue</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Filter gallery
+document.querySelectorAll('.btn-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      const show = f === 'all' || item.dataset.cat === f;
+      item.style.display = show ? '' : 'none';
+    });
+  });
+});
+
+// Work modal population
+const workModal = document.getElementById('workModal');
+if (workModal) {
+  workModal.addEventListener('show.bs.modal', (e) => {
+    const card = e.relatedTarget;
+    if (!card) return;
+    document.getElementById('modalTitle').textContent = card.dataset.title || '';
+    document.getElementById('modalCat').textContent = card.dataset.cat || '';
+    document.getElementById('modalDesc').textContent = card.dataset.desc || '';
+    var box = document.getElementById('modalArt');
+    box.innerHTML = '';
+    var svg = card.querySelector('svg');
+    if (svg) { box.appendChild(svg.cloneNode(true)); }
+  });
+}
+
+// Demo contact form
+const form = document.getElementById('contactForm');
+if (form) {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.classList.add('was-validated'); return; }
+    document.getElementById('formMsg').classList.remove('d-none');
+    form.reset();
+    form.classList.remove('was-validated');
+  });
+}
+
+</script>
+</body>
+</html>
